@@ -13,7 +13,7 @@ const App =()=> {
         <>
             <Header/>
             <Body/>
-            <Footer/>
+            <Footer name="shubham dogra as prop value"/>
         </>
     )
 }
