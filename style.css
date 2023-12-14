@@ -1,0 +1,20 @@
+.logo {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+}
+.nav-items {
+    display: flex;
+    list-style: none;
+}
+.nav-items > li {
+    padding: 10px;
+    font-size: large;
+    font-weight: bolder;
+    color: #F79F1F;
+}
