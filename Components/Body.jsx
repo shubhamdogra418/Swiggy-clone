@@ -12,10 +12,10 @@ const ResInfo = {
 
 //config driven UI
 //from  {props] >> {{restaurant}} directly destructurig in the fly
-const RestaurantCard =({restaurant}) => {
+const RestaurantCard =({name, cloudinaryImageId, area, costForTwoString, cuisines}) => {
     // console.log(props);
 //destructuring
-    const {name, cloudinaryImageId, area, costForTwoString, cuisines}= restaurant.data;
+    // const {name, cloudinaryImageId, area, costForTwoString, cuisines}= restaurant.data;
     return (
         <div className="card">
             <img src=  {"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"
@@ -34,11 +34,11 @@ const Body =()=> {
         <div style={{display: "flex", flexWrap:"wrap"}}>
             {/* <h1> Body Section</h1> */}
 {/* restaurant(bacause array name)={RestaurantList[0] >> from where we fetchi the data} */}
-            <RestaurantCard restaurant={RestaurantList[0]}/>
-            <RestaurantCard restaurant={RestaurantList[1]}/>
-            <RestaurantCard restaurant= {RestaurantList[2]}/>
-            <RestaurantCard restaurant={RestaurantList[3]}/>
-            <RestaurantCard restaurant={RestaurantList[5]}/>
+            <RestaurantCard {...RestaurantList[0].data}/>
+            <RestaurantCard {...RestaurantList[1].data}/>
+            <RestaurantCard {...RestaurantList[2].data}/>
+            <RestaurantCard {...RestaurantList[3].data}/>
+            <RestaurantCard {...RestaurantList[5].data}/>
         </div>
     )
 }
