@@ -23,6 +23,7 @@ body {
     color: #8e44ad;
     padding-right: 20px;
     cursor: pointer;
+    list-style: none;
 }
 .nav-items > li:hover {
     font-size: 22px;
@@ -67,4 +68,21 @@ body {
     color: #747d8c;
     font-weight: bolder;
     padding: 10px;
+}
+.card_content > img {
+    height: 200px;
+    width: 200px;
+}
+.cart-img {
+    /* position:relative; */
+}
+.links >li{
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: aliceblue;
+}
+.links {
+    text-decoration: none;
 }
