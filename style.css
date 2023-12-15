@@ -38,10 +38,33 @@ body {
    cursor: pointer;
     border-radius: 20px;
 }
+.resCard {
+    display: flex;
+    flex-wrap: wrap;
+}
 .card > img {
     height: 150px;
     width: 250px;
     border-radius: 20px;
 
     /* margin: 5px; */
+}
+.search-btn {
+    color: white;
+    background-color: #f39c12;
+    padding: 10px;
+    font-size: large;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+
+}
+.search-input {
+    font-size: large;
+    border-radius: 20px;
+    border: none;
+    margin: 20px;
+    color: #747d8c;
+    font-weight: bolder;
+    padding: 10px;
 }
