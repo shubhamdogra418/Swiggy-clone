@@ -10,6 +10,7 @@ import Error from "./src/Components/Error";
 import Cart from "./src/Components/Cart";
 import Profile from "./src/Components/Profile";
 import { Outlet } from "react-router-dom";
+import RestaurantMenu from "./src/Components/RestaurantMenu";
 //Why aren't we using Anchor tag (it refreshes the whole page >>performance issues) >>SPA (shouldn't load )
 
 const App =()=> {
@@ -33,7 +34,7 @@ const AppRouter= createBrowserRouter ([
             {
                 path: "/",
                 element: <Body/>
-            },
+            }, 
             {
                 path: "about",
                 element: <About/>, 
@@ -51,6 +52,10 @@ const AppRouter= createBrowserRouter ([
             {
                 path:"/cart",
                 element:<Cart/>
+            },
+            {
+                path:"restaurant/:resId", //:resId as params
+                element:<RestaurantMenu/>
             }
         ]
     }, 

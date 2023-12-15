@@ -4,6 +4,7 @@ body {
     height: 80px;
     width: 80px;
     border-radius: 50%;
+    cursor: pointer;
 }
 .header {
     display: flex;
