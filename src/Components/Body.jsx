@@ -27,7 +27,7 @@ const Body =()=> {
         const data= await fetch(
             'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'            );
         const json= await data.json();
-        console.log(json);
+        // console.log(json);
     //from API
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -37,7 +37,7 @@ const Body =()=> {
         // setFilteredRestaurants(RestaurantData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     }
-    
+
     if (!allRestaurants) return <h1>No Restaurants Online at this moment</h1>
     if(filteredRestaurants?.length===0) return <Shimmer/>
     return allRestaurants?.length===0 ? <Shimmer/> : (
