@@ -8,6 +8,17 @@ class ProfileClass extends React.Component {
     }
 }
 
+class Hello extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1> hello component using class based component</h1>
+            </div>
+        )
+    }
+}
+
+
 export class AnotherProfile extends React.Component {
     render () {
         return (

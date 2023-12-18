@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import  ReactDOM  from "react-dom/client";
 import Header from "./src/Components/Header";
 import Footer from "./src/Components/Footer";
@@ -11,6 +11,14 @@ import Cart from "./src/Components/Cart";
 import Profile from "./src/Components/Profile";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
+// import InstaMart from "./src/Components/Instamart";
+
+//lazy loading, on-demand loading, code splitting
+//on intial render (takes time as react suspends it) the code is not there, once visted and loaded (SPA) 
+// then it will load immediately, to avoid this suspense,we have to wrap it inside the suspense
+//this is a prmise to resolve
+
+const InstaMart= lazy(()=> import("./src/Components/Instamart"));
 //Why aren't we using Anchor tag (it refreshes the whole page >>performance issues) >>SPA (shouldn't load )
 
 const App =()=> {
@@ -24,6 +32,16 @@ const App =()=> {
         </>
     )
 }
+
+
+//On demand loading
+//Code splitting
+//Dynamic bundling
+//Chunking
+//Lazy loading
+//Dynamic import
+
+
 
 const AppRouter= createBrowserRouter ([
     {
@@ -56,7 +74,11 @@ const AppRouter= createBrowserRouter ([
             {
                 path:"/restaurant/:resId", //:resId as params
                 element:<RestaurantMenu/>
-            }
+            },
+            {
+                path: "/instamart",
+                element: <Suspense fallback={<h1> Loading...</h1>}> <InstaMart/> </Suspense> 
+            },
         ]
     }, 
     

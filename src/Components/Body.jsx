@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { RestaurantData } from "../constants/RestaurantData";
 import { RestaurantList } from "../constants/RestaurantList";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 
 //not a component but a function to filter the searched data
@@ -36,7 +37,11 @@ const Body =()=> {
     //hardcoded data
         // setAllRestaurants(RestaurantData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         // setFilteredRestaurants(RestaurantData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
 
+    const isOnline=useOnline();
+    if(!isOnline) {
+        return <h1>⛔ You're Offline, Check your Internet Connection</h1>
     }
 
     if (!allRestaurants) return <h1>No Restaurants Online at this moment</h1>
