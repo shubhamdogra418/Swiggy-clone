@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import Logo from "../assets/badbun.png";
-import { SimpaTacos } from "../constants/config";
+import Logo from "../assets/freshfood.jpg";
+// import { Logo, SimpaTacos } from "../constants/config";
 import { Link } from "react-router-dom";
 import Body from "./Body";
 
 export const Title =()=> {
     return (
-        <img className="logo" src={SimpaTacos}/>
+        <img className="logo" src={Logo}/>
     )
 }
 

@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RestaurantData } from "../constants/RestaurantData";
 import { RestaurantList } from "../constants/RestaurantList";
+import { Link } from "react-router-dom";
 
 
 //not a component but a function to filter the searched data
@@ -62,8 +63,8 @@ const Body =()=> {
             {
                 filteredRestaurants.map((restaurant)=> {
                     return (
-
-                     <RestaurantCard {...restaurant.info} key={restaurant.info.id}/> )}) 
+                        <Link  key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}>
+                     <RestaurantCard {...restaurant.info}/>  </Link>)}) 
                     // <RestaurantCard RestaurantList={restaurant}/>)})
             }
         </div>

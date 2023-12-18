@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { MENU_API } from "./config";
 
 
-const getRestaurantMenu =()=>{
+const getRestaurantMenu =(resId)=>{
     const {resId}=useParams();
     console.log(resId);
 
@@ -18,7 +18,7 @@ const getRestaurantMenu =()=>{
         const json= await data.json();
         console.log(json.data);
         setResInfo(json.data);
-    }; return resInfo;
+    }; 
 }
 
 export default getRestaurantMenu;
