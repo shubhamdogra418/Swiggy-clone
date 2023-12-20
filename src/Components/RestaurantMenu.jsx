@@ -44,15 +44,15 @@ const RestaurantMenu =() => {
 
 
         return (
-            <div className="menu-box">
-            <div className="card">
-                <img src=  {IMG_CDN_URL + cloudinaryImageId}/>
-                <h3> {name} 🍛 </h3> 
-                <h4> {areaName}, {city} {avgRating}⭐</h4>
-                <h4> {cuisines.join(", ")} </h4>
+            <div className="flex">
+            <div className="m-5">
+                <img className=" rounded-lg w[250px] h[170px]  content-center border-x-4 border-y-4 border-orange-400 mt-3 shadow-lg" src= {IMG_CDN_URL + cloudinaryImageId}/>
+                <h3 className=""> {name} 🍛 </h3> 
+                <h4 className=""> {areaName}, {city} {avgRating}⭐</h4>
+                <h4  className=""> {cuisines.join(", ")} </h4>
                 <h5>{costForTwoMessage} 🚻 </h5>
             </div>
-            <ul className="list"> 
+            <ul className="m-6 pb-10"> 
                 {itemCards.map((item) => (
                 <li key={item.card.info.id}>{item.card.info.name} - {" " + " ₹ "}
                 {item.card.info.price/100 || item.card.info.defaultPrice/100} 

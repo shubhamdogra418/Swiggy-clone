@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useState} from "react";
 import  ReactDOM  from "react-dom/client";
 import Header from "./src/Components/Header";
 import Footer from "./src/Components/Footer";
@@ -11,6 +11,7 @@ import Cart from "./src/Components/Cart";
 import Profile from "./src/Components/Profile";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
+import UserContext from "./src/utils/UserContext";
 // import InstaMart from "./src/Components/Instamart";
 
 //lazy loading, on-demand loading, code splitting
@@ -22,13 +23,23 @@ const InstaMart= lazy(()=> import("./src/Components/Instamart"));
 //Why aren't we using Anchor tag (it refreshes the whole page >>performance issues) >>SPA (shouldn't load )
 
 const App =()=> {
+    const[user, setUser]= useState( {
+        name: "niharika",
+        lname: "dogra",
+    })
+
     return (
         <>
+        <UserContext.Provider value={{
+            user: user,
+            setUser: setUser,
+            }}>
         {/* {header and footer should always be here and content bw should change (outlet)} */}
             <Header/>
             {/* {alll the children goes to the outlet}  */}
             <Outlet/>
             <Footer name="shubham dogra as prop value"/>
+            </UserContext.Provider>
         </>
     )
 }

@@ -5,7 +5,8 @@ import { RestaurantData } from "../constants/RestaurantData";
 import { RestaurantList } from "../constants/RestaurantList";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
-
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 //not a component but a function to filter the searched data
     function filterData(searchText, restaurants)  {
@@ -14,6 +15,7 @@ import useOnline from "../utils/useOnline";
 
 
 const Body =()=> {
+    const {user}= useContext(UserContext);
     //not good way to declare varibales in react
     // const searchText= "Chicken Breast";
     const[allRestaurants,setAllRestaurants]=useState([]);
@@ -48,13 +50,14 @@ const Body =()=> {
     if(filteredRestaurants?.length===0) return <Shimmer/>
     return allRestaurants?.length===0 ? <Shimmer/> : (
         <>
-        <div className="search-container">
+        <div className="pl-8">
            <input 
-                className="border border-stone-950 rounded-2xl"   
+                className=" pl-3 rounded-2xl"   
                 placeholder="Search Here" 
                 value={searchText}
                 onChange={(e)=>setSearchText(e.target.value)}
                 />
+
            <button 
                 className="m-4 px-2 py-0 bg-green-400 text-white rounded-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-100 hover:bg-green-500 duration-300 ..."
                 onClick={()=> {
@@ -62,6 +65,10 @@ const Body =()=> {
                     setFilteredRestaurants(data);
                 }}
             > Search </button> 
+            <input placeholder="hello" value={user.name} onChange={
+                e=> setUser({
+                    name: e.target.value})}>  </input>
+
         </div>
 
         {/* <div className="flex items-center">
@@ -77,7 +84,7 @@ const Body =()=> {
 					</button>
 				</div> */}
 
-        <div className="flex flex-wrap">   
+        <div className="flex flex-wrap bg-green -50" >   
             {
                 filteredRestaurants.map((restaurant)=> {
                     return (
